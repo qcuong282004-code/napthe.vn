@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CUONG TOPUP - Nạp Kim Cương</title>
+
+<style>
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f6f8;
+    color:#242424;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    height:72px;
+    background:white;
+    border-bottom:1px solid #e8e8e8;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 7%;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo-red{
+    color:#ff4438;
+}
+
+.logo-black{
+    color:#171717;
+}
+
+.demo-badge{
+    background:#fff0ef;
+    color:#ff4438;
+
+    font-size:11px;
+    font-weight:bold;
+
+    padding:5px 8px;
+    border-radius:6px;
+
+    margin-left:8px;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+.nav a{
+    color:#555;
+    font-size:14px;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.nav a:hover{
+    color:#ff4438;
+}
+
+.login-btn{
+    border:none;
+    background:#ff4438;
+    color:white;
+
+    padding:10px 17px;
+    border-radius:7px;
+
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    background:
+    radial-gradient(circle at 85% 20%, rgba(255,75,60,.45), transparent 25%),
+    linear-gradient(135deg,#131313,#292929);
+
+    color:white;
+
+    min-height:300px;
+
+    display:flex;
+    align-items:center;
+}
+
+.hero-inner{
+    max-width:1160px;
+    width:100%;
+
+    margin:auto;
+    padding:50px 20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.hero-left{
+    max-width:620px;
+}
+
+.hero-tag{
+    display:inline-block;
+
+    font-size:12px;
+    font-weight:bold;
+
+    padding:8px 12px;
+
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:50px;
+
+    margin-bottom:18px;
+
+    color:#ddd;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:14px;
+}
+
+.hero h1 span{
+    color:#ff5146;
+}
+
+.hero p{
+    color:#bcbcbc;
+    line-height:1.7;
+    font-size:15px;
+}
+
+.hero-art{
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:linear-gradient(145deg,#ff594e,#dc1f18);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:100px;
+
+    box-shadow:
+    0 0 0 15px rgba(255,255,255,.03),
+    0 0 0 30px rgba(255,255,255,.02);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+    max-width:1160px;
+    margin:30px auto 60px;
+    padding:0 20px;
+}
+
+.page-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 350px;
+    gap:24px;
+}
+
+.box{
+    background:white;
+    border-radius:14px;
+
+    padding:24px;
+
+    margin-bottom:20px;
+
+    border:1px solid #ececec;
+
+    box-shadow:0 4px 20px rgba(0,0,0,.035);
+}
+
+/* =========================
+   STEP TITLE
+========================= */
+
+.step-title{
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:20px;
+}
+
+.step-number{
+    width:31px;
+    height:31px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#ff4438;
+    color:white;
+
+    font-size:14px;
+    font-weight:bold;
+}
+
+.step-title h2{
+    font-size:18px;
+}
+
+.step-title p{
+    color:#888;
+    font-size:12px;
+    margin-top:3px;
+}
+
+/* =========================
+   GAME
+========================= */
+
+.games{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.game{
+    border:2px solid #ededed;
+    border-radius:12px;
+
+    padding:17px 10px;
+
+    cursor:pointer;
+
+    text-align:center;
+
+    background:white;
+
+    transition:.2s;
+}
+
+.game:hover{
+    border-color:#ffaaa5;
+    transform:translateY(-2px);
+}
+
+.game.active{
+    border-color:#ff4438;
+    background:#fff7f6;
+}
+
+.game-icon{
+    width:58px;
+    height:58px;
+
+    margin:0 auto 10px;
+
+    border-radius:14px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#f2f3f5;
+
+    font-size:30px;
+}
+
+.game-name{
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* =========================
+   USER ID
+========================= */
+
+.uid-label{
+    font-size:13px;
+    font-weight:bold;
+
+    display:block;
+
+    margin-bottom:9px;
+}
+
+.input-row{
+    display:flex;
+    gap:10px;
+}
+
+.uid-input{
+    flex:1;
+
+    height:47px;
+
+    padding:0 15px;
+
+    border:1px solid #dcdcdc;
+    border-radius:8px;
+
+    outline:none;
+
+    font-size:14px;
+}
+
+.uid-input:focus{
+    border-color:#ff4438;
+    box-shadow:0 0 0 3px rgba(255,68,56,.08);
+}
+
+.check-btn{
+    border:none;
+    border-radius:8px;
+
+    background:#242424;
+    color:white;
+
+    padding:0 20px;
+
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.check-btn:hover{
+    background:#000;
+}
+
+.uid-result{
+    margin-top:10px;
+    font-size:13px;
+    min-height:16px;
+}
+
+/* =========================
+   DIAMONDS
+========================= */
+
+.packages{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:13px;
+}
+
+.package{
+    border:2px solid #ededed;
+    border-radius:11px;
+
+    padding:18px 12px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    position:relative;
+
+    transition:.2s;
+
+    background:#fff;
+}
+
+.package:hover{
+    border-color:#ffaaa5;
+}
+
+.package.active{
+    border-color:#ff4438;
+    background:#fff7f6;
+}
+
+.package.hot::after{
+    content:"PHỔ BIẾN";
+
+    position:absolute;
+    top:-9px;
+    right:8px;
+
+    font-size:9px;
+    font-weight:bold;
+
+    color:white;
+    background:#ff4438;
+
+    padding:4px 7px;
+    border-radius:5px;
+}
+
+.diamond{
+    font-size:25px;
+    margin-bottom:6px;
+}
+
+.diamond-number{
+    font-size:18px;
+    font-weight:800;
+}
+
+.package-price{
+    margin-top:7px;
+
+    color:#e53c31;
+
+    font-weight:bold;
+    font-size:14px;
+}
+
+/* =========================
+   PAYMENT
+========================= */
+
+.payments{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.payment{
+    border:2px solid #ededed;
+    border-radius:11px;
+
+    min-height:74px;
+
+    padding:12px;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    transition:.2s;
+}
+
+.payment:hover{
+    border-color:#ffaaa5;
+}
+
+.payment.active{
+    border-color:#ff4438;
+    background:#fff7f6;
+}
+
+.payment-icon{
+    width:45px;
+    height:45px;
+
+    background:#f1f2f4;
+    border-radius:10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+}
+
+.payment-name{
+    font-weight:bold;
+    font-size:13px;
+}
+
+.payment-desc{
+    color:#888;
+    font-size:11px;
+    margin-top:4px;
+}
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary{
+    position:sticky;
+    top:92px;
+}
+
+.summary-title{
+    font-size:19px;
+    margin-bottom:20px;
+}
+
+.order-game{
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    border-bottom:1px solid #eee;
+
+    padding-bottom:17px;
+    margin-bottom:17px;
+}
+
+.order-icon{
+    width:50px;
+    height:50px;
+
+    border-radius:11px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#f1f2f4;
+
+    font-size:25px;
+}
+
+.order-game-name{
+    font-weight:bold;
+    font-size:14px;
+}
+
+.order-sub{
+    color:#888;
+    font-size:11px;
+    margin-top:4px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin:14px 0;
+
+    font-size:13px;
+}
+
+.row span:first-child{
+    color:#777;
+}
+
+.row strong{
+    max-width:180px;
+    text-align:right;
+}
+
+.total{
+    border-top:1px dashed #ddd;
+
+    margin-top:18px;
+    padding-top:18px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.total span{
+    font-size:14px;
+    font-weight:bold;
+}
+
+.total-price{
+    color:#ff4438;
+    font-size:23px;
+    font-weight:900;
+}
+
+.pay-btn{
+    width:100%;
+    height:49px;
+
+    margin-top:20px;
+
+    border:none;
+    border-radius:9px;
+
+    background:#ff4438;
+    color:white;
+
+    font-size:14px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.pay-btn:hover{
+    background:#e83329;
+    transform:translateY(-1px);
+}
+
+.pay-btn:disabled{
+    background:#ccc;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.secure{
+    text-align:center;
+
+    color:#8b8b8b;
+    font-size:11px;
+
+    margin-top:13px;
+
+    line-height:1.5;
+}
+
+/* =========================
+   WARNING
+========================= */
+
+.demo-warning{
+    background:#fff8e8;
+    border:1px solid #ffe1a0;
+
+    color:#8b6300;
+
+    padding:12px 14px;
+
+    border-radius:8px;
+
+    font-size:12px;
+    line-height:1.5;
+
+    margin-top:15px;
+}
+
+/* =========================
+   HISTORY
+========================= */
+
+.history-title{
+    margin-bottom:17px;
+}
+
+.history-empty{
+    color:#999;
+    font-size:13px;
+
+    padding:20px 0;
+
+    text-align:center;
+}
+
+.history-item{
+    padding:13px 0;
+
+    border-bottom:1px solid #eee;
+
+    display:grid;
+
+    grid-template-columns:1fr auto;
+    gap:10px;
+}
+
+.history-main{
+    font-size:13px;
+    font-weight:bold;
+}
+
+.history-sub{
+    font-size:11px;
+    color:#888;
+    margin-top:5px;
+}
+
+.status{
+    color:#159b50;
+    font-size:11px;
+    font-weight:bold;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-bg{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    display:none;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    z-index:5000;
+}
+
+.modal-bg.show{
+    display:flex;
+}
+
+.modal{
+    width:100%;
+    max-width:440px;
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:28px;
+
+    animation:pop .2s ease;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(.94);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.modal-icon{
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    margin:0 auto 15px;
+
+    background:#eafaf0;
+
+    color:#0a9d48;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:30px;
+}
+
+.modal h2{
+    text-align:center;
+    margin-bottom:8px;
+}
+
+.modal-desc{
+    text-align:center;
+    color:#777;
+
+    line-height:1.5;
+
+    font-size:13px;
+
+    margin-bottom:20px;
+}
+
+.modal-info{
+    background:#f6f7f8;
+
+    padding:15px;
+
+    border-radius:9px;
+
+    margin-bottom:18px;
+}
+
+.modal-info .row{
+    margin:10px 0;
+}
+
+.modal-btn{
+    width:100%;
+
+    height:45px;
+
+    border:none;
+    border-radius:8px;
+
+    background:#222;
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#171717;
+    color:#aaa;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    font-size:12px;
+    line-height:1.7;
+}
+
+footer strong{
+    color:white;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .page-grid{
+        grid-template-columns:1fr;
+    }
+
+    .summary{
+        position:static;
+    }
+
+    .hero-art{
+        width:150px;
+        height:150px;
+        font-size:70px;
+    }
+
+    .games{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+
+    .header{
+        padding:0 17px;
+    }
+
+    .nav a{
+        display:none;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .hero-inner{
+        padding:35px 20px;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .hero-art{
+        display:none;
+    }
+
+    .packages{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .payments{
+        grid-template-columns:1fr;
+    }
+
+    .input-row{
+        flex-direction:column;
+    }
+
+    .check-btn{
+        height:45px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div>
+        <span class="logo">
+            <span class="logo-red">CUONG</span>
+            <span class="logo-black">TOPUP</span>
+        </span>
+
+        <span class="demo-badge">DEMO</span>
+    </div>
+
+    <nav class="nav">
+        <a href="#topup">Nạp game</a>
+        <a href="#history">Lịch sử</a>
+        <a href="#support">Hỗ trợ</a>
+
+        <button class="login-btn">
+            Đăng nhập
+        </button>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <div class="hero-left">
+
+            <div class="hero-tag">
+                ✦ CỔNG NẠP GAME DEMO
+            </div>
+
+            <h1>
+                Nạp game
+                <span>nhanh chóng</span>
+            </h1>
+
+            <p>
+                Chọn trò chơi, nhập ID người chơi và lựa chọn gói
+                phù hợp. Đây là website demo dùng để học lập trình,
+                không thực hiện giao dịch tiền thật.
+            </p>
+
+        </div>
+
+        <div class="hero-art">
+            💎
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MAIN -->
+
+<main class="container" id="topup">
+
+<div class="page-grid">
+
+<!-- LEFT -->
+
+<div>
+
+<!-- GAME -->
+
+<section class="box">
+
+    <div class="step-title">
+
+        <div class="step-number">1</div>
+
+        <div>
+            <h2>Chọn trò chơi</h2>
+            <p>Chọn trò chơi bạn muốn nạp</p>
+        </div>
+
+    </div>
+
+    <div class="games">
+
+        <div class="game active"
+             onclick="selectGame(this,'Free Fire','🔥')">
+
+            <div class="game-icon">🔥</div>
+
+            <div class="game-name">
+                Free Fire
+            </div>
+
+        </div>
+
+
+        <div class="game"
+             onclick="selectGame(this,'Liên Quân','⚔️')">
+
+            <div class="game-icon">⚔️</div>
+
+            <div class="game-name">
+                Liên Quân
+            </div>
+
+        </div>
+
+
+        <div class="game"
+             onclick="selectGame(this,'FC Online','⚽')">
+
+            <div class="game-icon">⚽</div>
+
+            <div class="game-name">
+                FC Online
+            </div>
+
+        </div>
+
+
+        <div class="game"
+             onclick="selectGame(this,'Game khác','🎮')">
+
+            <div class="game-icon">🎮</div>
+
+            <div class="game-name">
+                Game khác
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- UID -->
+
+<section class="box">
+
+    <div class="step-title">
+
+        <div class="step-number">2</div>
+
+        <div>
+            <h2>Thông tin tài khoản</h2>
+            <p>Nhập ID người chơi để tiếp tục</p>
+        </div>
+
+    </div>
+
+    <label class="uid-label">
+        ID người chơi
+    </label>
+
+    <div class="input-row">
+
+        <input
+        type="text"
+        id="uid"
+        class="uid-input"
+        placeholder="Ví dụ: 123456789"
+        maxlength="15">
+
+        <button
+        class="check-btn"
+        onclick="checkUID()">
+
+            Kiểm tra
+
+        </button>
+
+    </div>
+
+    <div id="uidResult" class="uid-result"></div>
+
+</section>
+
+
+<!-- PACKAGE -->
+
+<section class="box">
+
+    <div class="step-title">
+
+        <div class="step-number">3</div>
+
+        <div>
+            <h2>Chọn gói Kim Cương</h2>
+            <p>Chọn số lượng bạn muốn nạp</p>
+        </div>
+
+    </div>
+
+    <div class="packages">
+
+        <div class="package active"
+             data-diamond="100"
+             data-price="20000"
+             onclick="selectPackage(this)">
+
+            <div class="diamond">💎</div>
+
+            <div class="diamond-number">
+                100
+            </div>
+
+            <div class="package-price">
+                20.000đ
+            </div>
+
+        </div>
+
+
+        <div class="package"
+             data-diamond="210"
+             data-price="40000"
+             onclick="selectPackage(this)">
+
+            <div class="diamond">💎</div>
+
+            <div class="diamond-number">
+                210
+            </div>
+
+            <div class="package-price">
+                40.000đ
+            </div>
+
+        </div>
+
+
+        <div class="package hot"
+             data-diamond="530"
+             data-price="100000"
+             onclick="selectPackage(this)">
+
+            <div class="diamond">💎</div>
+
+            <div class="diamond-number">
+                530
+            </div>
+
+            <div class="package-price">
+                100.000đ
+            </div>
+
+        </div>
+
+
+        <div class="package"
+             data-diamond="1080"
+             data-price="200000"
+             onclick="selectPackage(this)">
+
+            <div class="diamond">💎</div>
+
+            <div class="diamond-number">
+                1.080
+            </div>
+
+            <div class="package-price">
+                200.000đ
+            </div>
+
+        </div>
+
+
+        <div class="package"
+             data-diamond="2200"
+             data-price="400000"
+             onclick="selectPackage(this)">
+
+            <div class="diamond">💎</div>
+
+            <div class="diamond-number">
+                2.200
+            </div>
+
+            <div class="package-price">
+                400.000đ
+            </div>
+
+        </div>
+
+
+        <div class="package"
+             data-diamond="5600"
+             data-price="1000000"
+             onclick="selectPackage(this)">
+
+            <div class="diamond">💎</div>
+
+            <div class="diamond-number">
+                5.600
+            </div>
+
+            <div class="package-price">
+                1.000.000đ
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section class="box">
+
+    <div class="step-title">
+
+        <div class="step-number">4</div>
+
+        <div>
+            <h2>Phương thức thanh toán</h2>
+            <p>Chọn hình thức thanh toán mô phỏng</p>
+        </div>
+
+    </div>
+
+    <div class="payments">
+
+        <div class="payment active"
+             onclick="selectPayment(this,'QR Code Demo')">
+
+            <div class="payment-icon">
+                📱
+            </div>
+
+            <div>
+
+                <div class="payment-name">
+                    QR Code
+                </div>
+
+                <div class="payment-desc">
+                    Thanh toán mô phỏng
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="payment"
+             onclick="selectPayment(this,'Ví điện tử Demo')">
+
+            <div class="payment-icon">
+                👛
+            </div>
+
+            <div>
+
+                <div class="payment-name">
+                    Ví điện tử
+                </div>
+
+                <div class="payment-desc">
+                    Giao dịch demo
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="payment"
+             onclick="selectPayment(this,'Thẻ game Demo')">
+
+            <div class="payment-icon">
+                🎫
+            </div>
+
+            <div>
+
+                <div class="payment-name">
+                    Thẻ game
+                </div>
+
+                <div class="payment-desc">
+                    Mô phỏng thẻ nạp
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="payment"
+             onclick="selectPayment(this,'Ngân hàng Demo')">
+
+            <div class="payment-icon">
+                🏦
+            </div>
+
+            <div>
+
+                <div class="payment-name">
+                    Ngân hàng
+                </div>
+
+                <div class="payment-desc">
+                    Không chuyển tiền thật
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="demo-warning">
+        ⚠️ Đây là website DEMO dùng để học HTML/CSS/JavaScript.
+        Không nhập thông tin thẻ ngân hàng, mật khẩu, OTP hoặc
+        thực hiện chuyển tiền thật.
+    </div>
+
+</section>
+
+</div>
+
+
+<!-- RIGHT SUMMARY -->
+
+<aside>
+
+<div class="box summary">
+
+    <h3 class="summary-title">
+        Chi tiết đơn hàng
+    </h3>
+
+    <div class="order-game">
+
+        <div
+        class="order-icon"
+        id="summaryGameIcon">
+            🔥
+        </div>
+
+        <div>
+
+            <div
+            class="order-game-name"
+            id="summaryGame">
+                Free Fire
+            </div>
+
+            <div class="order-sub">
+                Nạp vật phẩm trong game
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <span>ID người chơi</span>
+
+        <strong id="summaryUID">
+            Chưa nhập
+        </strong>
+
+    </div>
+
+
+    <div class="row">
+
+        <span>Gói nạp</span>
+
+        <strong>
+            <span id="summaryDiamond">
+                100
+            </span>
+            💎
+        </strong>
+
+    </div>
+
+
+    <div class="row">
+
+        <span>Thanh toán</span>
+
+        <strong id="summaryPayment">
+            QR Code Demo
+        </strong>
+
+    </div>
+
+
+    <div class="total">
+
+        <span>Tổng thanh toán</span>
+
+        <div
+        class="total-price"
+        id="summaryPrice">
+
+            20.000đ
+
+        </div>
+
+    </div>
+
+
+    <button
+    class="pay-btn"
+    onclick="createOrder()">
+
+        TẠO ĐƠN DEMO
+
+    </button>
+
+
+    <div class="secure">
+
+        🔒 Không thu tiền thật<br>
+        Dữ liệu chỉ được mô phỏng trên trình duyệt.
+
+    </div>
+
+</div>
+
+</aside>
+
+</div>
+
+
+<!-- HISTORY -->
+
+<section
+class="box"
+id="history">
+
+    <h2 class="history-title">
+        Lịch sử giao dịch demo
+    </h2>
+
+    <div id="historyList">
+
+        <div class="history-empty">
+            Chưa có giao dịch nào.
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer id="support">
+
+    <strong>CUONG TOPUP</strong>
+
+    <br>
+
+    Website thực hành HTML / CSS / JavaScript.
+
+    <br>
+
+    Không phải website nạp game chính thức và không thực hiện
+    thanh toán thật.
+
+</footer>
+
+
+<!-- SUCCESS MODAL -->
+
+<div
+class="modal-bg"
+id="modal">
+
+    <div class="modal">
+
+        <div class="modal-icon">
+            ✓
+        </div>
+
+        <h2>
+            Tạo đơn thành công
+        </h2>
+
+        <div class="modal-desc">
+            Đơn hàng demo đã được tạo.
+            Không có tiền hoặc vật phẩm thật được giao dịch.
+        </div>
+
+
+        <div class="modal-info">
+
+            <div class="row">
+
+                <span>Mã đơn</span>
+
+                <strong id="modalOrder">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="row">
+
+                <span>ID người chơi</span>
+
+                <strong id="modalUID">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="row">
+
+                <span>Gói</span>
+
+                <strong id="modalPackage">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="row">
+
+                <span>Giá trị</span>
+
+                <strong id="modalPrice">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <button
+        class="modal-btn"
+        onclick="closeModal()">
+
+            Hoàn tất
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ===============================
+   DATA
+================================ */
+
+let selectedGame = "Free Fire";
+let selectedGameIcon = "🔥";
+
+let selectedDiamond = 100;
+let selectedPrice = 20000;
+
+let selectedPayment = "QR Code Demo";
+
+let uidVerified = false;
+
+let orderHistory = [];
+
+
+/* ===============================
+   FORMAT MONEY
+================================ */
+
+function money(number){
+
+    return number.toLocaleString("vi-VN") + "đ";
+
+}
+
+
+/* ===============================
+   SELECT GAME
+================================ */
+
+function selectGame(element,name,icon){
+
+    document
+    .querySelectorAll(".game")
+    .forEach(game =>
+        game.classList.remove("active")
+    );
+
+    element.classList.add("active");
+
+    selectedGame = name;
+    selectedGameIcon = icon;
+
+    document.getElementById(
+        "summaryGame"
+    ).innerText = name;
+
+    document.getElementById(
+        "summaryGameIcon"
+    ).innerText = icon;
+
+}
+
+
+/* ===============================
+   CHECK UID
+================================ */
+
+function checkUID(){
+
+    const uid =
+    document
+    .getElementById("uid")
+    .value
+    .trim();
+
+    const result =
+    document.getElementById(
+        "uidResult"
+    );
+
+    if(uid === ""){
+
+        result.style.color="#e53935";
+
+        result.innerText =
+        "⚠ Vui lòng nhập ID người chơi.";
+
+        uidVerified=false;
+
+        return;
+
+    }
+
+    if(!/^[0-9]{5,15}$/.test(uid)){
+
+        result.style.color="#e53935";
+
+        result.innerText =
+        "⚠ ID demo phải gồm 5-15 chữ số.";
+
+        uidVerified=false;
+
+        return;
+
+    }
+
+    uidVerified=true;
+
+    result.style.color="#159b50";
+
+    result.innerText =
+    "✓ ID hợp lệ cho bản demo.";
+
+    document.getElementById(
+        "summaryUID"
+    ).innerText=uid;
+
+}
+
+
+/* ===============================
+   SELECT PACKAGE
+================================ */
+
+function selectPackage(element){
+
+    document
+    .querySelectorAll(".package")
+    .forEach(packageItem =>
+        packageItem.classList.remove("active")
+    );
+
+    element.classList.add("active");
+
+    selectedDiamond =
+    Number(element.dataset.diamond);
+
+    selectedPrice =
+    Number(element.dataset.price);
+
+    document.getElementById(
+        "summaryDiamond"
+    ).innerText =
+    selectedDiamond.toLocaleString("vi-VN");
+
+    document.getElementById(
+        "summaryPrice"
+    ).innerText =
+    money(selectedPrice);
+
+}
+
+
+/* ===============================
+   PAYMENT
+================================ */
+
+function selectPayment(element,name){
+
+    document
+    .querySelectorAll(".payment")
+    .forEach(payment =>
+        payment.classList.remove("active")
+    );
+
+    element.classList.add("active");
+
+    selectedPayment=name;
+
+    document.getElementById(
+        "summaryPayment"
+    ).innerText=name;
+
+}
+
+
+/* ===============================
+   CREATE ORDER
+================================ */
+
+function createOrder(){
+
+    const uid =
+    document
+    .getElementById("uid")
+    .value
+    .trim();
+
+    if(!uidVerified){
+
+        alert(
+            "Hãy nhập ID và bấm Kiểm tra trước."
+        );
+
+        return;
+
+    }
+
+    const orderCode =
+    "DEMO" +
+    Date.now()
+    .toString()
+    .slice(-8);
+
+    const order = {
+
+        code:orderCode,
+        uid:uid,
+        game:selectedGame,
+        diamond:selectedDiamond,
+        price:selectedPrice,
+        payment:selectedPayment,
+        time:new Date()
+        .toLocaleString("vi-VN")
+
+    };
+
+    orderHistory.unshift(order);
+
+    renderHistory();
+
+    document.getElementById(
+        "modalOrder"
+    ).innerText=orderCode;
+
+    document.getElementById(
+        "modalUID"
+    ).innerText=uid;
+
+    document.getElementById(
+        "modalPackage"
+    ).innerText=
+    selectedDiamond.toLocaleString("vi-VN")
+    +" 💎";
+
+    document.getElementById(
+        "modalPrice"
+    ).innerText=
+    money(selectedPrice);
+
+    document.getElementById(
+        "modal"
+    ).classList.add("show");
+
+}
+
+
+/* ===============================
+   HISTORY
+================================ */
+
+function renderHistory(){
+
+    const container =
+    document.getElementById(
+        "historyList"
+    );
+
+    if(orderHistory.length===0){
+
+        container.innerHTML=
+        `
+        <div class="history-empty">
+            Chưa có giao dịch nào.
+        </div>
+        `;
+
+        return;
+
+    }
+
+    container.innerHTML="";
+
+    orderHistory.forEach(order=>{
+
+        const item =
+        document.createElement("div");
+
+        item.className="history-item";
+
+        item.innerHTML=
+        `
+        <div>
+
+            <div class="history-main">
+
+                ${order.game}
+                •
+                ${order.diamond.toLocaleString("vi-VN")}
+                💎
+
+            </div>
+
+            <div class="history-sub">
+
+                ${order.code}
+                • UID ${order.uid}
+                • ${order.time}
+
+            </div>
+
+        </div>
+
+        <div>
+
+            <div class="status">
+                DEMO THÀNH CÔNG
+            </div>
+
+            <div
+            style="
+            text-align:right;
+            font-size:12px;
+            margin-top:5px;
+            font-weight:bold;
+            ">
+
+                ${money(order.price)}
+
+            </div>
+
+        </div>
+        `;
+
+        container.appendChild(item);
+
+    });
+
+}
+
+
+/* ===============================
+   CLOSE MODAL
+================================ */
+
+function closeModal(){
+
+    document.getElementById(
+        "modal"
+    ).classList.remove("show");
+
+}
+
+
+/* ===============================
+   UPDATE UID WHILE TYPING
+================================ */
+
+document
+.getElementById("uid")
+.addEventListener(
+    "input",
+    function(){
+
+        uidVerified=false;
+
+        document.getElementById(
+            "summaryUID"
+        ).innerText =
+        this.value.trim()
+        ? this.value.trim()
+        : "Chưa nhập";
+
+        document.getElementById(
+            "uidResult"
+        ).innerText="";
+
+    }
+);
+
+
+/* CLOSE MODAL WHEN CLICK OUTSIDE */
+
+document
+.getElementById("modal")
+.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target===this){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
